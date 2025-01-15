@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('WebBluetooth', include('WebBluetooth.urls')),
+    path('WebBluetooth/', include('WebBluetooth.urls')),
+    path('LockAuth/', include('LockAuth.urls')),
 ]
