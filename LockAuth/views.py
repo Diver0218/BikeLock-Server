@@ -11,9 +11,12 @@ class AuthView(View):
     def get(self, request, *args, **kwargs):
         now_time = datetime.datetime.now()
         token = secrets.token_hex(32)
-        LockID = reuquest.GET.get('LockID')
-        
-        Lock.objects.update_or_create(LockID=1, defaults={'CurrentToken': token, 'TokenTimestamp': now_time})
+        LockID = request.GET.get('LockID')
+        lock = Lock.objects.filter(LockID=LockID)
+        lock.CurrentToken = token
+        lock.TokenTimestamp = now_time
+        lock.save()
+        return JsonResponse({'token': token})
         
         
     def post(self, request, *args, **kwargs):
