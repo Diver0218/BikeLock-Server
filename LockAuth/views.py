@@ -4,7 +4,7 @@ from .scripts.auth import authenticate
 from django.http import JsonResponse
 import secrets
 import datetime
-from models import Lock
+from .models import Lock
 
 class AuthView(View):
     
