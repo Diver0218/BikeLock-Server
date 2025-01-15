@@ -1,19 +1,30 @@
 function connectDevice() {
-    navigator.bluetooth.requestDevice({ })
+    navigator.bluetooth.requestDevice(
+        {
+            filter:
+            {
+                name: "BikeLock"
+            } 
+        })
         .then(device => {
-            // Device is selected, do something with it
             console.log('Selected device:', device);
-            // Connect to the device and perform further actions
             return device.gatt.connect();
         })
         .then(server => {
-            // Device is connected, do something with the server
             console.log('Connected server:', server);
-            // Perform operations on the server
-            // ...
+            return server.getPrimaryService('your_service_uuid');
+        })
+        .then(service => {
+            return service.getCharacteristic('your_characteristic_uuid');
+        })
+        .then(characteristic => {
+            const data = new Uint8Array([1, 2, 3]); // Example data to send
+            return characteristic.writeValue(data);
+        })
+        .then(() => {
+            console.log('Value written successfully');
         })
         .catch(error => {
-            // Handle any errors that occur during the process
             console.error('Error:', error);
         });
 }
