@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
-from scripts.auth import authenticate
+from .scripts.auth import authenticate
 from django.http import JsonResponse
 
 class AuthView(View):
