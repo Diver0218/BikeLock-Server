@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('WebBluetooth/', include('WebBluetooth.urls')),
     path('LockAuth/', include('LockAuth.urls')),
+    path('GPSData/', include('GPSData.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
 ]

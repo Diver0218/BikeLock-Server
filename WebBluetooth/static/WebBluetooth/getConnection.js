@@ -5,6 +5,7 @@ url = 'http://localhost:3498/LockAuth/';
 async function getToken() {
     const options = {
         method: 'GET',
+        credentials: 'include'
     };
     let response = await fetch(url, options);
     let data = await response.json()

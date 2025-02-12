@@ -8,7 +8,12 @@ import datetime
 from .models import Token
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
+
+@method_decorator(login_required, name='get')
+@method_decorator(csrf_exempt, name='dispatch')
 class AuthView(View):
     
     def get(self, request, *args, **kwargs):
