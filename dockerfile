@@ -8,9 +8,6 @@ FROM python:${PYTHON_VERSION}-alpine${ALPINE_VERSION} as base
 USER root
 RUN pip install --upgrade pip
 
-# Install PostgreSQL client libraries
-RUN apk add --no-cache postgresql-dev postgresql-client
-
 # Create a non-privileged user named "worker"
 RUN adduser --disabled-password --gecos "" worker
 
