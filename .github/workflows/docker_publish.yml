@@ -27,6 +27,6 @@ jobs:
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ./BikeLock-Server
         push: true
         tags: ghcr.io/diver0218/bikelock-server:latest
