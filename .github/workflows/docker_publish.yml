@@ -1,4 +1,4 @@
-name: Django CI
+name: DjBuild and Publish container
 
 on:
   push:
