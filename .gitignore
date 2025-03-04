@@ -16,6 +16,7 @@ __pycache__/
 # IDE files
 .vscode/
 .idea/
+*.vscode-workspace
 
 # Compiled Python files
 *.pyc
